@@ -1,38 +1,62 @@
-.App {
-  text-align: center;
+/* src/App.css */
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Nerd Font Definition */
+@font-face {
+  font-family: 'FiraCodeNerd';
+  src: url('./assets/fonts/FiraCodeNerdFont-Regular.ttf') format('truetype');
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* --- Cyberdream Color Palette --- */
+:root {
+  --bg: #16181a;
+  --bg-alt: #1e2124;
+  --bg-highlight: #3c4048;
+  --fg: #ffffff;
+  --grey: #7b8496;
+  --blue: #5ea1ff;
+  --green: #5eff6c;
+  --cyan: #5ef1ff;
+  --red: #ff6e5e;
+  --yellow: #f1ff5e;
+  --magenta: #ff5ef1;
+  --pink: #ff5ea0;
+  --orange: #ffbd5e;
+  --purple: #bd5eff;
+
+  /* Fonts */
+  --font-primary: 'Poppins', sans-serif;
+  --font-nerd: 'FiraCodeNerd', monospace;
+  --font-mono: 'Share Tech Mono', monospace;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg);
+  color: var(--fg);
+  overflow-x: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  color: var(--cyan);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a {
+  color: var(--pink);
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+  color: var(--fg);
+  text-shadow: 0 0 5px var(--pink), 0 0 10px var(--pink);
 }

@@ -1,0 +1,54 @@
+.managementPage {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.tabHeader {
+  display: flex;
+  border-bottom: 1px solid var(--bg-highlight);
+  flex-shrink: 0;
+}
+
+.tabButton {
+  padding: 1rem 1.5rem;
+  background: none;
+  border: none;
+  color: var(--grey);
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.tabButton::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--cyan);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.tabButton:hover {
+  color: var(--fg);
+}
+
+.tabButton.active {
+  color: var(--cyan);
+}
+
+.tabButton.active::after {
+  transform: scaleX(1);
+}
+
+.tabContent {
+  flex-grow: 1;
+  padding-top: 2rem;
+  overflow-y: auto;
+}

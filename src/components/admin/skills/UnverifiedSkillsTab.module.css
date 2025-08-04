@@ -1,0 +1,8 @@
+.actions { display: flex; gap: 0.5rem; }
+.actionButton { border: 1px solid; padding: 0.5rem 1rem; font-size: 0.9rem; border-radius: 4px; cursor: pointer; background: transparent; transition: all 0.2s ease; font-family: var(--font-primary); font-weight: 600;}
+.actionButton.approve { border-color: var(--green); color: var(--green); }
+.actionButton.approve:hover { background-color: var(--green); color: var(--bg); }
+.actionButton.map { border-color: var(--blue); color: var(--blue); }
+.actionButton.map:hover { background-color: var(--blue); color: var(--bg); }
+.actionButton.reject { border-color: var(--red); color: var(--red); }
+.actionButton.reject:hover { background-color: var(--red); color: var(--bg); }

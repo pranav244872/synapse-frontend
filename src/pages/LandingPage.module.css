@@ -1,0 +1,65 @@
+.heroContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 80px 1rem 0; /* Add padding for fixed header */
+  text-align: center;
+}
+
+.heroContent {
+  max-width: 900px;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.mainHeading {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 6vw, 4.5rem); /* Responsive font size */
+  line-height: 1.2;
+  color: var(--fg);
+  margin: 0 0 1.5rem;
+}
+
+.mainHeading .highlight {
+  color: var(--cyan);
+  text-shadow: 0 0 10px var(--cyan);
+}
+
+.subheading {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--grey);
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+.ctaButton {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  padding: 1rem 3rem;
+  border-radius: 9999px; /* Pill shape */
+  background-color: var(--blue);
+  color: var(--bg);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-size: 1.2rem;
+  box-shadow: 0 0 20px rgba(94, 161, 255, 0.4);
+}
+
+.ctaButton:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(94, 161, 255, 0.6);
+  text-shadow: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,22 @@
+.filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.searchInput {
+  flex-grow: 1;
+  padding: 0.75rem;
+  background-color: var(--bg);
+  border: 1px solid var(--bg-highlight);
+  border-radius: 6px;
+  color: var(--fg);
+  font-size: 1rem;
+}
+.filterSelect {
+  padding: 0.75rem;
+  background-color: var(--bg);
+  border: 1px solid var(--bg-highlight);
+  border-radius: 6px;
+  color: var(--fg);
+  font-size: 1rem;
+}

@@ -1,0 +1,98 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10rem 1.5rem 5rem; /* More top padding to clear the header */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.textLeft {
+  text-align: left;
+}
+
+.mainHeading {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  line-height: 1.1;
+  font-size: clamp(3rem, 7vw, 4.5rem);
+  margin-bottom: 1rem;
+}
+
+.animatedTextContainer {
+  font-family: var(--font-mono);
+  color: var(--grey);
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  min-height: 3rem; /* Prevents layout shift */
+}
+
+.cursor {
+  color: var(--cyan);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { color: transparent; }
+  50% { color: var(--cyan); }
+}
+
+.buttonContainer {
+  margin-top: 3rem;
+}
+
+.getStartedButton {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  background-color: var(--blue);
+  color: var(--bg);
+  box-shadow: 0 0 15px rgba(94, 161, 255, 0.3);
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.getStartedButton:hover {
+  background-color: var(--cyan);
+  box-shadow: 0 0 20px rgba(94, 241, 255, 0.5);
+  transform: scale(1.05);
+  color: var(--bg);
+}
+
+.codeVisual {
+  display: none; /* Hidden on mobile by default */
+  background-color: var(--bg-alt);
+  border: 1px solid var(--bg-highlight);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  height: 400px;
+  overflow: hidden;
+}
+
+.pre {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+@media (min-width: 768px) {
+  .codeVisual {
+    display: block; /* Visible on desktop */
+  }
+}

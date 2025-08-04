@@ -1,0 +1,38 @@
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: rgba(30, 33, 36, 0.5);
+  border-bottom: 1px solid var(--bg-highlight);
+  flex-shrink: 0;
+}
+
+.pageTitle {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.userMenu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: var(--font-primary);
+}
+
+.logoutButton {
+  background: transparent;
+  border: 1px solid var(--red);
+  color: var(--red);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.logoutButton:hover {
+  background: var(--red);
+  color: var(--bg);
+  box-shadow: 0 0 10px var(--red);
+}

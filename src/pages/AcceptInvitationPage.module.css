@@ -1,0 +1,27 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 1rem 0;
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 500px;
+  padding: 2.5rem;
+  background: rgba(30, 33, 36, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid var(--blue);
+}
+
+/* Reusing styles from LoginForm */
+.title { text-align: center; margin-bottom: 0.5rem; font-family: var(--font-primary); font-size: 2rem; color: var(--blue); }
+.subtitle { text-align: center; margin-bottom: 2rem; color: var(--grey); }
+.inputGroup { display: flex; flex-direction: column; gap: 1.5rem; }
+.input, .textarea { width: 100%; padding: 15px; font-family: var(--font-primary); background: var(--bg-alt); border: 1px solid var(--bg-highlight); border-radius: 5px; color: var(--fg); font-size: 1rem; }
+.textarea { min-height: 150px; resize: vertical; }
+.button { padding: 1rem; margin-top: 1rem; font-family: var(--font-primary); font-size: 1.1rem; font-weight: 700; color: var(--cyan); background: transparent; border: 2px solid var(--cyan); border-radius: 5px; cursor: pointer; }
+.button:hover:not(:disabled) { background: var(--cyan); color: var(--bg); }
+.error { color: var(--red); text-align: center; }

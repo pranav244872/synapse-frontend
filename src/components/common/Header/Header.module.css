@@ -1,0 +1,52 @@
+.glassHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  
+  /* This creates the glass effect using the main background color (--bg) */
+  background-color: rgba(22, 24, 26, 0.85); /* --bg (#16181a) with 85% opacity */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border-bottom: 1px solid var(--bg-highlight);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoText a {
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--pink);
+  text-shadow: 0 0 8px var(--pink);
+  text-decoration: none;
+}
+
+.loginButton {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px; /* Pill shape */
+  background-color: transparent;
+  border: 2px solid var(--blue);
+  color: var(--blue);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.loginButton:hover {
+  background-color: var(--blue);
+  color: var(--bg);
+  box-shadow: 0 0 15px rgba(94, 161, 255, 0.5);
+  transform: scale(1.05);
+  text-shadow: none;
+}

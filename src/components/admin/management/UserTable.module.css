@@ -1,0 +1,7 @@
+.actions { display: flex; gap: 0.5rem; }
+.actionButton { border: 1px solid; padding: 0.5rem 1rem; font-size: 0.9rem; border-radius: 4px; cursor: pointer; background: transparent; transition: all 0.2s ease; font-family: var(--font-primary); font-weight: 600;}
+.actionButton:disabled { opacity: 0.5; cursor: not-allowed; border-color: var(--grey); color: var(--grey); }
+.actionButton.edit { border-color: var(--blue); color: var(--blue); }
+.actionButton.edit:hover:not(:disabled) { background-color: var(--blue); color: var(--bg); }
+.actionButton.delete { border-color: var(--red); color: var(--red); }
+.actionButton.delete:hover:not(:disabled) { background-color: var(--red); color: var(--bg); }

@@ -1,0 +1,74 @@
+/* 
+  Container for the table with proper styling
+  - Overflow hidden creates clean rounded corners
+  - Background color provides consistent theming
+  - Border radius for modern appearance
+*/
+.tableContainer {
+  border: 1px solid var(--bg-highlight);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--bg-alt);
+}
+
+/* 
+  Main table styling
+  - Full width for responsive design
+  - Border collapse prevents double borders between cells
+*/
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* 
+  Common styling for both headers and data cells
+  - Consistent padding for better readability
+  - Left alignment as default (overridden for Actions column)
+  - Bottom border creates visual separation between rows
+*/
+.table th,
+.table td {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  border-bottom: 1px solid var(--bg-highlight);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 
+  Table header specific styling
+  - Uppercase text with letter spacing for professional look
+  - Grey color to distinguish from data
+  - Smaller font size for header hierarchy
+*/
+.table th {
+  font-family: var(--font-primary);
+  color: var(--grey);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+/* 
+  Remove border from last row for cleaner appearance
+  - Prevents unnecessary border at bottom of table
+*/
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* 
+  Row interaction styling
+  - Smooth transition for better user experience
+  - Hover effect helps users track which row they're examining
+*/
+.table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(30, 33, 36, 0.7);
+}

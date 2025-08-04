@@ -1,0 +1,20 @@
+.searchInput {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.5rem;
+  background-color: var(--bg);
+  border: 2px solid var(--bg-highlight);
+  border-radius: 6px;
+  color: var(--fg);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+.actions { display: flex; gap: 0.5rem; }
+.actionButton { border: 1px solid; padding: 0.5rem 1rem; font-size: 0.9rem; border-radius: 4px; cursor: pointer; background: transparent; transition: all 0.2s ease; font-family: var(--font-primary); font-weight: 600;}
+.actionButton.manage { border-color: var(--grey); color: var(--grey); }
+.actionButton.manage:hover { background-color: var(--grey); color: var(--bg); }
+.actionButton.delete { border-color: var(--red); color: var(--red); }
+.actionButton.delete:hover { background-color: var(--red); color: var(--bg); }
+
+.actionButton.create { border-color: var(--green); color: var(--green); }
+.actionButton.create:hover { background-color: var(--green); color: var(--bg); }

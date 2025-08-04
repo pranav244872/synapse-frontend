@@ -1,0 +1,24 @@
+.separatorContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.line {
+  height: 3px;
+  width: 40%;
+  max-width: 400px;
+  background: linear-gradient(to right, transparent, var(--bg-highlight), transparent);
+}
+
+.diamond {
+  width: 12px;
+  height: 12px;
+  background-color: var(--cyan);
+  transform: rotate(45deg);
+  margin: 0 1rem;
+  box-shadow: 0 0 15px var(--cyan);
+  flex-shrink: 0;
+}

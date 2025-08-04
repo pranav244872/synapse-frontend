@@ -1,0 +1,91 @@
+.section {
+  padding: 2rem 0;
+  position: relative;
+  z-index: 10;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.heading {
+  text-align: left;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-family: var(--font-primary);
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+/* FIX: Explicitly set the font for the subtitle */
+.subtitle {
+  font-family: var(--font-primary);
+  color: var(--grey);
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.featureCard {
+  background-color: rgba(30, 33, 36, 0.1); /* --bg-alt with opacity */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+/* Base hover transform, applies to all cards */
+.featureCard:hover {
+  transform: translateY(-5px);
+}
+
+/* ENHANCEMENT: Add colored box-shadow for a glow effect on hover */
+.borderCyan { border-color: rgba(94, 241, 255, 0.5); }
+.borderCyan:hover {
+  border-color: var(--cyan);
+  box-shadow: 0 0 25px rgba(94, 241, 255, 0.3);
+}
+
+.borderGreen { border-color: rgba(94, 255, 108, 0.5); }
+.borderGreen:hover {
+  border-color: var(--green);
+  box-shadow: 0 0 25px rgba(94, 255, 108, 0.3);
+}
+
+.borderPink { border-color: rgba(255, 94, 160, 0.5); }
+.borderPink:hover {
+  border-color: var(--pink);
+  box-shadow: 0 0 25px rgba(255, 94, 160, 0.3);
+}
+
+.cardTitle {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.cardText {
+  color: var(--grey);
+  line-height: 1.6;
+  font-family: var(--font-primary);
+}

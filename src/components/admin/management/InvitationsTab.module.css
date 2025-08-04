@@ -1,0 +1,268 @@
+.tabHeader {
+  display: flex;
+  justify-content: space-between; /* Aligns items to ends */
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.viewSwitcher {
+  display: inline-flex;
+  background-color: var(--bg-alt);
+  border: 1px solid var(--bg-highlight);
+  border-radius: 6px;
+  padding: 4px;
+}
+
+.viewSwitcher button {
+  background: none;
+  border: none;
+  color: var(--grey);
+  padding: 0.5rem 1rem;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.viewSwitcher button.active {
+  background-color: var(--bg-highlight);
+  color: var(--fg);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.actionButton {
+  background-color: var(--blue);
+  color: var(--bg);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--bg);
+  border: 1px solid var(--bg-highlight);
+  border-radius: 6px;
+  color: var(--fg);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.deleteButton {
+    background: transparent;
+    border: 1px solid var(--red);
+    color: var(--red);
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.deleteButton:hover {
+    background: var(--red);
+    color: var(--bg);
+}
+
+.linkContainer {
+    color: var(--grey);
+}
+
+.linkContainer p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.linkInputWrapper {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.linkInput {
+    flex-grow: 1;
+    background-color: var(--bg);
+    border: 1px solid var(--bg-highlight);
+    border-radius: 6px;
+    padding: 0.75rem;
+    color: var(--fg);
+    font-family: var(--font-mono);
+}
+
+.copyButton {
+    background-color: var(--bg-highlight);
+    border: 1px solid var(--bg-highlight);
+    color: var(--fg);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.copyButton:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+}
+
+.status {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.statusPending {
+    background-color: #fef3c7;
+    color: #d97706;
+}
+
+.statusAccepted {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.statusExpired {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+.statusRejected {
+    background-color: #f3f4f6;
+    color: #6b7280;
+}
+
+.statusDefault {
+    background-color: var(--bg-alt);
+    color: var(--grey);
+}
+
+/* 
+  Container for multiple action elements (status text + button)
+  - Flexbox layout for proper vertical stacking
+  - Center alignment ensures elements stay within column bounds
+  - Small gap between status text and button
+*/
+.actionContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+/* 
+  Status text for non-deletable items (Completed, Expired, etc.)
+  - Subtle styling to indicate informational text
+  - Small font size to not overpower the interface
+  - Center aligned to match button alignment
+  - Zero margins to prevent layout shifts
+*/
+.statusText {
+    color: var(--grey);
+    font-size: 0.75rem;
+    font-style: italic;
+}
+
+/* 
+  Secondary delete button for completed/expired invitations
+  - Subtle styling (grey border) indicates secondary action
+  - Smaller than primary delete button
+  - White-space nowrap prevents button text from wrapping
+  - Smooth hover transition for better UX
+*/
+.deleteButtonSecondary {
+    background: transparent;
+    border: 1px solid var(--grey);
+    color: var(--grey);
+    padding: 0.2rem 0.4rem;
+    font-size: 0.7rem;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.deleteButtonSecondary:hover {
+    background: var(--grey);
+    color: var(--bg);
+}
+
+/* 
+  Primary delete button for pending invitations
+  - Red color indicates destructive action
+  - Larger and more prominent than secondary button
+  - White-space nowrap ensures consistent button sizing
+*/
+.deleteButton {
+    background: transparent;
+    border: 1px solid var(--red);
+    color: var(--red);
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap; /* Prevents button text from breaking */
+    transition: all 0.2s ease;
+}
+
+.deleteButton:hover {
+    background: var(--red);
+    color: var(--bg);
+}
+
+/* 
+  Status badge styling for invitation status display
+  - Pill-shaped design with proper padding
+  - Small, uppercase text for consistency
+  - Letter spacing improves readability at small sizes
+*/
+.status {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Status-specific color schemes for immediate visual recognition */
+.statusPending {
+    background-color: #fef3c7; /* Light amber background */
+    color: #d97706; /* Amber text */
+}
+
+.statusAccepted {
+    background-color: #d1fae5; /* Light green background */
+    color: #065f46; /* Dark green text */
+}
+
+.statusExpired {
+    background-color: #fee2e2; /* Light red background */
+    color: #dc2626; /* Red text */
+}
+
+.statusRejected {
+    background-color: #f3f4f6; /* Light grey background */
+    color: #6b7280; /* Grey text */
+}
+
+.statusDefault {
+    background-color: var(--bg-alt);
+    color: var(--grey);
+}
+
+/* 
+  Form error styling for validation feedback
+  - Red color indicates error state
+  - Negative margin adjusts spacing with form inputs
+*/
+.formError {
+    color: var(--red);
+    font-size: 0.875rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+}

@@ -1,0 +1,35 @@
+.input {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--bg);
+  border: 1px solid var(--bg-highlight);
+  border-radius: 6px;
+  color: var(--fg);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.error {
+    color: var(--red);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.submitButton {
+  width: 100%;
+  border: 1px solid var(--green);
+  color: var(--green);
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.2s ease;
+  font-family: var(--font-primary);
+  font-weight: 600;
+}
+
+.submitButton:hover:not(:disabled) { 
+  background-color: var(--green); 
+  color: var(--bg); 
+}
