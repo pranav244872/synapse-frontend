@@ -1,9 +1,6 @@
 import React, { useState, useContext } from 'react';
 // Import React hooks for managing local component state and accessing context
 
-import { useNavigate } from 'react-router-dom';
-// useNavigate is used for programmatic navigation after login
-
 import styles from './LoginForm.module.css';
 // Scoped CSS module for form styling
 
@@ -22,8 +19,7 @@ const LoginForm = () => {
   const { login } = useContext(AuthContext);
   // Get the `login` function from the auth context
 
-  const navigate = useNavigate();
-  // Hook for redirecting the user after successful login
+  // ✅ Removed useNavigate since AuthContext handles redirection
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission behavior
@@ -32,10 +28,8 @@ const LoginForm = () => {
 
     try {
       await login(email, password);
-      // Attempt to log in using the context's `login` method
-      
-      // Redirect to dashboard on success
-      navigate('/dashboard'); 
+      // ✅ Let AuthContext handle the redirect based on user role
+      // No need to navigate manually here
     } catch (err) {
       // If login fails, display an error message
       setError(err.message || 'Failed to login. Please check your credentials.');
@@ -97,4 +91,3 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
-// Exporting the component for use in the login

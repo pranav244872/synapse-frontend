@@ -1,0 +1,33 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 992px) {
+  .columns {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.mainColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.sideColumn {
+  display: flex;
+  flex-direction: column;
+}

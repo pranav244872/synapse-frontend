@@ -1,0 +1,28 @@
+.container {
+  background-color: var(--bg-alt);
+  border: 1px solid var(--bg-highlight);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.title {
+  font-family: var(--font-primary);
+  margin: 0 0 1.5rem 0;
+  color: var(--fg);
+}
+
+.cancelButton {
+  background: transparent;
+  border: 1px solid var(--red);
+  color: var(--red);
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancelButton:hover {
+  background: var(--red);
+  color: var(--bg);
+}

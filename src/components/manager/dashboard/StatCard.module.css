@@ -1,0 +1,25 @@
+.statCard {
+  background-color: var(--bg-alt);
+  border: 1px solid var(--bg-highlight);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.value {
+  font-family: var(--font-primary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--cyan);
+  line-height: 1;
+}
+
+.title {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  color: var(--grey);
+  text-transform: uppercase;
+}

@@ -1,0 +1,10 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.title { font-family: var(--font-primary); margin: 0; color: var(--fg); font-size: 1.5rem; }
+.createButton { background-color: var(--blue); color: var(--bg); border: none; padding: 0.75rem 1.5rem; border-radius: 6px; font-family: var(--font-primary); font-weight: 700; cursor: pointer; transition: all 0.2s ease; }
+.createButton:hover { opacity: 0.9; box-shadow: 0 0 15px var(--blue); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }

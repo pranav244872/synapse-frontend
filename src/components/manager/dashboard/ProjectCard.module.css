@@ -1,0 +1,48 @@
+.projectCard {
+  display: block;
+  background-color: var(--bg-alt);
+  border: 1px solid var(--bg-highlight);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.2s ease-in-out;
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.projectCard:hover {
+  transform: translateY(-5px);
+  border-color: var(--blue);
+  box-shadow: 0 5px 20px rgba(94, 161, 255, 0.1);
+}
+
+.projectName {
+  font-family: var(--font-primary);
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.progressInfo {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: var(--grey);
+  margin-bottom: 0.5rem;
+}
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--bg);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(to right, var(--blue), var(--cyan));
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}

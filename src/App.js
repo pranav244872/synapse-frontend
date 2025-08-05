@@ -6,26 +6,30 @@ import { AuthProvider } from './context/AuthContext';
 
 // Layouts and Pages
 import AdminLayout from './layouts/AdminLayout'; // Admin dashboard layout with sidebar and topbar
+import ManagerLayout from './layouts/ManagerLayout'; // Manager dashboard layout with navigation
 import LandingPage from './pages/LandingPage'; // Public home page
 import LoginPage from './pages/LoginPage'; // Login form for users
 import ManagementPage from './pages/admin/ManagementPage'; // Admin management interface
 import SkillManagementPage from './pages/admin/SkillManagementPage'; // Admin skill management view
+import ManagerDashboardPage from './pages/manager/ManagerDashboardPage'; // Manager main dashboard with stats
+import ProjectDetailPage from './pages/manager/ProjectDetailPage'; // Individual project view with tasks
+import ManagerTeamPage from './pages/manager/ManagerTeamPage'; // Team members and availability view
 import AcceptInvitationPage from './pages/AcceptInvitationPage';
 
 // Common UI components
 import AnimatedBackground from './components/common/AnimatedBackground/AnimatedBackground'; // Global background animation
 import Header from './components/common/Header/Header'; // Top header for public pages
-import ProtectedRoute from './components/common/ProtectedRoute'; // Route guard to restrict access to authenticated users
+import ProtectedRoute from './components/common/ProtectedRoute'; // Route guard with role-based access control
 
 // Global styles
 import './App.css';
 
 function App() {
   return (
-    // Provide authentication context to the entire app
-    <AuthProvider>
-      {/* Enable client-side routing */}
-      <Router>
+    // Router must be outermost to provide navigation context for useNavigate() hooks
+    <Router>
+      {/* AuthProvider can now use useNavigate() since it's inside Router context */}
+      <AuthProvider>
         {/* Background visual effect rendered globally */}
         <AnimatedBackground />
 
@@ -38,18 +42,15 @@ function App() {
           {/* Login page with header */}
           <Route path="/login" element={<><Header /><LoginPage /></>} />
 
-          {/*Accept Invitation page*/}
+          {/* Accept Invitation page */}
           <Route path="/accept-invitation" element={<><Header /><AcceptInvitationPage /></>} />
 
           {/* Protected Admin Routes */}
-          <Route
-            path="/admin"
-            element={
-              <ProtectedRoute>
-                <AdminLayout /> {/* Wraps nested admin routes with sidebar/topbar */}
-              </ProtectedRoute>
-            }
-          >
+          <Route path="/admin" element={
+            <ProtectedRoute allowedRoles={['admin']}>
+              <AdminLayout />
+            </ProtectedRoute>
+          }>
             {/* Default route under /admin redirects to /admin/management */}
             <Route index element={<Navigate to="management" replace />} />
 
@@ -60,11 +61,30 @@ function App() {
             <Route path="skills" element={<SkillManagementPage />} />
           </Route>
 
-          {/* Optional: route that redirects to main admin dashboard (useful post-login) */}
-          <Route path="/dashboard" element={<Navigate to="/admin/management" replace />} />
+          {/* Protected Manager Routes */}
+          <Route path="/manager" element={
+            <ProtectedRoute allowedRoles={['manager']}>
+              <ManagerLayout />
+            </ProtectedRoute>
+          }>
+            {/* Default route under /manager redirects to /manager/dashboard */}
+            <Route index element={<Navigate to="dashboard" replace />} />
+
+            {/* Manager main dashboard with team stats */}
+            <Route path="dashboard" element={<ManagerDashboardPage />} />
+
+            {/* Individual project detail page with tasks */}
+            <Route path="projects/:projectId" element={<ProjectDetailPage />} />
+
+            {/* Team members and availability overview */}
+            <Route path="team" element={<ManagerTeamPage />} />
+          </Route>
+          
+          {/* Generic dashboard redirect for fallback navigation */}
+          <Route path="/dashboard" element={<Navigate to="/login" replace />} />
         </Routes>
-      </Router>
-    </AuthProvider>
+      </AuthProvider>
+    </Router>
   );
 }
 

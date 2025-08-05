@@ -1,0 +1,21 @@
+.kanbanPlaceholder {
+  border: 2px dashed var(--bg-highlight);
+  border-radius: 8px;
+  padding: 4rem;
+  text-align: center;
+  color: var(--grey);
+}
+.kanbanPlaceholder h2 {
+    color: var(--fg);
+}
+.kanbanPlaceholder ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+}
+.kanbanPlaceholder li {
+    background-color: var(--bg-alt);
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+}

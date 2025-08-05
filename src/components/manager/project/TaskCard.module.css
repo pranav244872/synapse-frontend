@@ -1,0 +1,15 @@
+.card { background-color: var(--bg-alt); border-radius: 6px; padding: 1rem; margin-bottom: 0.75rem; border: 1px solid var(--bg-highlight); box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+.title { font-weight: 600; margin-bottom: 1rem; }
+.footer { display: flex; justify-content: space-between; align-items: center; }
+.assignee { color: var(--grey); font-size: 0.8rem; }
+.priority { padding: 0.2rem 0.6rem; border-radius: 999px; font-size: 0.7rem; font-weight: 700; text-transform: capitalize; }
+.priority.low { background-color: rgba(94, 161, 255, 0.2); color: var(--blue); }
+.priority.medium { background-color: rgba(94, 255, 108, 0.2); color: var(--green); }
+.priority.high { background-color: rgba(255, 189, 94, 0.2); color: var(--orange); }
+.priority.critical { background-color: rgba(255, 110, 94, 0.2); color: var(--red); }
+.cardHeader { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+.title { font-weight: 600; padding-right: 1rem; }
+.editButton { background: none; border: none; color: var(--grey); cursor: pointer; padding: 0; font-size: 0.8rem; }
+.editButton:hover { color: var(--fg); }
+.recommendButton { width: 100%; margin-top: 1rem; background-color: var(--blue); color: var(--bg); border: none; padding: 0.6rem; border-radius: 6px; font-family: var(--font-primary); font-weight: 600; cursor: pointer; }
+.recommendButton:hover { opacity: 0.9; }

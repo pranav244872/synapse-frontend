@@ -1,0 +1,47 @@
+.container {
+  background-color: var(--bg-alt);
+  border: 1px solid var(--bg-highlight);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+}
+.title {
+  font-family: var(--font-primary);
+  margin: 0 0 0.5rem 0;
+  color: var(--fg);
+}
+.container p {
+  color: var(--grey);
+  margin: 0 0 1.5rem 0;
+}
+.inviteButton {
+  background-color: var(--blue);
+  color: var(--bg);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.inviteButton:hover {
+  opacity: 0.9;
+  box-shadow: 0 0 15px var(--blue);
+}
+.input {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--bg);
+  border: 1px solid var(--bg-highlight);
+  border-radius: 6px;
+  color: var(--fg);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.formError { color: var(--red); text-align: center; margin-bottom: 1rem; }
+.linkContainer p { margin-top: 0; margin-bottom: 1rem; text-align: left; }
+.linkInputWrapper { display: flex; gap: 0.5rem; }
+.linkInput { flex-grow: 1; background-color: var(--bg); border: 1px solid var(--bg-highlight); border-radius: 6px; padding: 0.75rem; color: var(--fg); font-family: var(--font-mono); }
+.copyButton { background-color: var(--bg-highlight); border: 1px solid var(--bg-highlight); color: var(--fg); padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; flex-shrink: 0; }
+.copyButton:hover { border-color: var(--cyan); color: var(--cyan); }

@@ -1,0 +1,45 @@
+.container {
+  background-color: var(--bg-alt);
+  border: 1px solid var(--bg-highlight);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.title {
+  font-family: var(--font-primary);
+  margin: 0 0 1rem 0;
+  color: var(--fg);
+}
+
+.memberList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.memberItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.statusBadge {
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.statusBadge.available {
+  background-color: rgba(94, 255, 108, 0.2);
+  color: var(--green);
+}
+
+.statusBadge.busy {
+  background-color: rgba(255, 189, 94, 0.2);
+  color: var(--orange);
+}
