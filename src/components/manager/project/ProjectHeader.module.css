@@ -3,3 +3,15 @@
 .description { color: var(--grey); margin: 0; max-width: 60ch; }
 .createButton { background-color: var(--green); color: var(--bg); border: none; padding: 0.75rem 1.5rem; border-radius: 6px; font-family: var(--font-primary); font-weight: 700; cursor: pointer; transition: all 0.2s ease; flex-shrink: 0; }
 .createButton:hover { opacity: 0.9; box-shadow: 0 0 15px var(--green); }
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.createButton { background-color: var(--green); color: var(--bg); border: none; padding: 0.75rem 1.5rem; border-radius: 6px; font-family: var(--font-primary); font-weight: 700; cursor: pointer; transition: all 0.2s ease; }
+.createButton:hover { opacity: 0.9; box-shadow: 0 0 15px var(--green); }
+
+.archiveButton { background-color: transparent; border: 1px solid var(--orange); color: var(--orange); padding: 0.75rem 1.5rem; border-radius: 6px; font-family: var(--font-primary); font-weight: 700; cursor: pointer; transition: all 0.2s ease; }
+.archiveButton:hover { background-color: var(--orange); color: var(--bg); }

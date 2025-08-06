@@ -121,18 +121,30 @@ export const getProjectTasks = (projectId, pageId = 1, pageSize = 100) =>
 export const createTask = (taskData) => apiClient.post('/manager/tasks', taskData);
 
 /**
- * Updates task details, status, or assignment in a unified endpoint.
- * Supports partial updates for Kanban boards, engineer assignments, and detail modifications.
- * Automatically handles user availability updates based on assignment changes.
+ * Updates basic task details including title, description, and priority.
+ * Used for content modifications without affecting assignment or status.
  * @param {number} id - ID of the task to update.
- * @param {object} taskData - Fields to update { title?, description?, priority?, status?, assignee_id? }.
- *   - status: 'open', 'in_progress', 'done'
- *   - priority: 'low', 'medium', 'high', 'critical'
- *   - assignee_id: engineer ID (0 to unassign)
+ * @param {object} taskData - Fields to update { title?, description?, priority? }.
+ *   Priority must be one of: 'low', 'medium', 'high', 'critical'.
  *   At least one field must be provided.
  * @returns {Promise} Axios response promise with updated task details.
  */
-export const updateTask = (id, taskData) => apiClient.patch(`/manager/tasks/${id}`, taskData);
+export const updateTaskDetails = (id, taskData) => {
+    return apiClient.patch(`/manager/tasks/${id}`, taskData);
+};
+
+/**
+ * Assigns a task to an engineer within the manager's team.
+ * Automatically updates task status to 'in_progress' and marks engineer as 'busy'.
+ * Both operations are performed atomically using database transaction.
+ * @param {number} taskId - ID of the task to assign.
+ * @param {number} userId - ID of the engineer to assign the task to.
+ * @returns {Promise} Axios response promise with updated task and user details:
+ *   { Task: {...}, User: {...} }
+ */
+export const assignTask = (taskId, userId) => {
+    return apiClient.post(`/manager/tasks/${taskId}/assign`, { user_id: userId });
+};
 
 // --- Engineer Recommendations ---
 

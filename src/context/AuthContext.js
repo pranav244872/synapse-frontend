@@ -75,9 +75,12 @@ export const AuthProvider = ({ children }) => {
             } else if (userData.role === 'manager') {
                 console.log('🚀 Redirecting to manager dashboard...');
                 navigate('/manager/dashboard');      // Manager → Team Dashboard
+            } else if (userData.role === 'engineer') {
+                console.log('🚀 Redirecting to engineer workspace...');
+                navigate('/engineer/workspace');     // Engineer → Personal Workspace
             } else {
-                console.log('🚀 Redirecting to default dashboard...');
-                navigate('/dashboard');              // Engineer → Personal Dashboard (fallback)
+                console.log('🚀 Redirecting to login fallback...');
+                navigate('/login');                  // Fallback for unknown roles
             }
 
         } catch (error) {

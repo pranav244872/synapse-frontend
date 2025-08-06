@@ -5,88 +5,89 @@ import TeamAvailability from '../../components/manager/dashboard/TeamAvailabilit
 import ProjectList from '../../components/manager/dashboard/ProjectList';
 import styles from './ManagerDashboardPage.module.css';
 
-/**
- * ManagerDashboardPage is the main overview page for team managers.
- * Displays key metrics, active projects, and team member availability in a unified view.
- * Provides managers with essential information for team and project oversight.
- */
+// Main dashboard page component for managers
 const ManagerDashboardPage = () => {
-  // Dashboard statistics (active projects, open tasks, engineer counts)
+  // State to store dashboard statistics (active projects, open tasks, engineers)
   const [stats, setStats] = useState(null);
   
-  // Team members list with availability status
+  // State to store team member data and availability
   const [members, setMembers] = useState([]);
   
-  // Active projects list with task completion data
+  // State to store project list data
   const [projects, setProjects] = useState([]);
   
-  // Loading state for initial data fetch
+  // Loading state for initial dashboard data fetch
   const [loading, setLoading] = useState(true);
   
-  // Error message for failed API requests
+  // Error state for handling API failures
   const [error, setError] = useState('');
+  
+  // Filter state for project view (false = active projects, true = archived projects)
+  const [projectFilter, setProjectFilter] = useState(false);
 
-  // Fetch all dashboard data on component mount
+  // Initial data fetch for dashboard stats and team members
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchDashboardData = async () => {
       try {
-        setLoading(true);
-        
-        // Fetch all dashboard data in parallel for optimal performance
-        const [statsRes, membersRes, projectsRes] = await Promise.all([
-          getDashboardStats(),           // Get key metrics and counts
-          getTeamMembers(),             // Get team member availability
-          getProjects()                 // Get first page of active projects
+        // Fetch stats and team members simultaneously for better performance
+        const [statsRes, membersRes] = await Promise.all([
+          getDashboardStats(),
+          getTeamMembers(),
         ]);
-
-        // Update state with fetched data
         setStats(statsRes.data);
         setMembers(membersRes.data);
-        setProjects(projectsRes.data.data); // Extract projects from paginated response
       } catch (err) {
-        // Handle API errors gracefully
         setError('Failed to load dashboard data.');
         console.error(err);
       } finally {
-        // Always stop loading regardless of success/failure
         setLoading(false);
       }
     };
-    
-    fetchData();
+    fetchDashboardData();
   }, []);
 
-  // Callback to refresh project list after a new project is created
+  // Separate effect for projects to allow refetching when filter changes
+  useEffect(() => {
+    // Fetch page 1 of 20 projects based on current filter (active/archived)
+    getProjects(1, 20, projectFilter)
+      .then(projectsRes => {
+        setProjects(projectsRes.data.data);
+      })
+      .catch(err => console.error("Failed to load projects", err));
+  }, [projectFilter]);
+
+  // Handler for when a new project is created - switches to active view
   const handleProjectCreated = () => {
-    // A simple way to refresh the project list
-    getProjects().then(projectsRes => {
-      setProjects(projectsRes.data.data);
-    });
+    // When a project is created, switch to the active view and refetch
+    setProjectFilter(false);
   };
 
-  // Show loading state while fetching data
+  // Show loading state while fetching initial data
   if (loading) return <div>Loading Dashboard...</div>;
   
   // Show error message if data fetch failed
   if (error) return <div>{error}</div>;
 
   return (
+    // Main dashboard container
     <div className={styles.dashboard}>
-      {/* Top row of key performance metrics */}
+      {/* Top row: Statistics cards showing key metrics */}
       <div className={styles.statsGrid}>
         <StatCard title="Active Projects" value={stats.activeProjects} />
         <StatCard title="Open Tasks" value={stats.openTasks} />
         <StatCard title="Available Engineers" value={`${stats.availableEngineers} / ${stats.totalEngineers}`} />
       </div>
-      
-      {/* Main content area with two-column layout */}
+      {/* Two-column layout for main content and sidebar */}
       <div className={styles.columns}>
-        {/* Left column: Project overview and management */}
+        {/* Left column: Project list with filtering and creation capabilities */}
         <div className={styles.mainColumn}>
-          {/* Pass the callback to refresh projects when new one is created */}
-          <ProjectList projects={projects} onProjectCreated={handleProjectCreated} />
+          <ProjectList 
+            projects={projects} 
+            onProjectCreated={handleProjectCreated}
+            activeFilter={projectFilter}
+            onFilterChange={setProjectFilter}
+          />
         </div>
-        
         {/* Right column: Team availability sidebar */}
         <div className={styles.sideColumn}>
           <TeamAvailability members={members} />

@@ -1,0 +1,23 @@
+.workspace {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .workspace {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.mainColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sideColumn {
+  position: sticky;
+  top: 2rem; /* Sticks the side panel relative to the scrollable container */
+}

@@ -7,6 +7,7 @@ import { AuthProvider } from './context/AuthContext';
 // Layouts and Pages
 import AdminLayout from './layouts/AdminLayout'; // Admin dashboard layout with sidebar and topbar
 import ManagerLayout from './layouts/ManagerLayout'; // Manager dashboard layout with navigation
+import EngineerLayout from './layouts/EngineerLayout'; // Engineer workspace layout with navigation
 import LandingPage from './pages/LandingPage'; // Public home page
 import LoginPage from './pages/LoginPage'; // Login form for users
 import ManagementPage from './pages/admin/ManagementPage'; // Admin management interface
@@ -14,6 +15,8 @@ import SkillManagementPage from './pages/admin/SkillManagementPage'; // Admin sk
 import ManagerDashboardPage from './pages/manager/ManagerDashboardPage'; // Manager main dashboard with stats
 import ProjectDetailPage from './pages/manager/ProjectDetailPage'; // Individual project view with tasks
 import ManagerTeamPage from './pages/manager/ManagerTeamPage'; // Team members and availability view
+import EngineerWorkspacePage from './pages/engineer/EngineerWorkspacePage'; // Engineer main workspace
+import EngineerProfilePage from './pages/engineer/EngineerProfilePage'; // Engineer profile management
 import AcceptInvitationPage from './pages/AcceptInvitationPage';
 
 // Common UI components
@@ -79,8 +82,24 @@ function App() {
             {/* Team members and availability overview */}
             <Route path="team" element={<ManagerTeamPage />} />
           </Route>
+
+          {/* Protected Engineer Routes */}
+          <Route path="/engineer" element={
+            <ProtectedRoute allowedRoles={['engineer']}>
+              <EngineerLayout />
+            </ProtectedRoute>
+          }>
+            {/* Default route under /engineer redirects to /engineer/workspace */}
+            <Route index element={<Navigate to="workspace" replace />} />
+
+            {/* Engineer main workspace with current task and dashboard */}
+            <Route path="workspace" element={<EngineerWorkspacePage />} />
+
+            {/* Engineer profile and skills management */}
+            <Route path="profile" element={<EngineerProfilePage />} />
+          </Route>
           
-          {/* Generic dashboard redirect for fallback navigation */}
+          {/* Generic dashboard redirect redirects to login for security */}
           <Route path="/dashboard" element={<Navigate to="/login" replace />} />
         </Routes>
       </AuthProvider>

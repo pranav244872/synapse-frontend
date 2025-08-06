@@ -1,0 +1,12 @@
+.actions { display: flex; gap: 0.5rem; }
+.actionButton { border: 1px solid; padding: 0.5rem 1rem; font-size: 0.9rem; border-radius: 4px; cursor: pointer; background: transparent; transition: all 0.2s ease; font-family: var(--font-primary); font-weight: 600;}
+.actionButton.edit { border-color: var(--grey); color: var(--grey); }
+.actionButton.edit:hover { background-color: var(--grey); color: var(--bg); }
+.actionButton.recommend { border-color: var(--blue); color: var(--blue); }
+.actionButton.recommend:hover { background-color: var(--blue); color: var(--bg); }
+
+.priority { padding: 0.2rem 0.6rem; border-radius: 999px; font-size: 0.7rem; font-weight: 700; text-transform: capitalize; }
+.priority.low { background-color: rgba(94, 161, 255, 0.2); color: var(--blue); }
+.priority.medium { background-color: rgba(94, 255, 108, 0.2); color: var(--green); }
+.priority.high { background-color: rgba(255, 189, 94, 0.2); color: var(--orange); }
+.priority.critical { background-color: rgba(255, 110, 94, 0.2); color: var(--red); }

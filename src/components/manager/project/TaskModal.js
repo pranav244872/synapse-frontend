@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { createTask, updateTask } from '../../../api/managerService';
+import { createTask } from '../../../api/managerService';
 import Modal from '../../common/Modal/Modal';
 import styles from './TaskModal.module.css';
 
-const TaskModal = ({ isOpen, onClose, onSuccess, projectId, taskToEdit }) => {
+// Modal component for creating new tasks or editing existing task details
+const TaskModal = ({ isOpen, onClose, onSuccess, projectId, taskToEdit, updateTaskApi }) => {
   // State for task title input field
   const [title, setTitle] = useState('');
   
@@ -39,16 +40,16 @@ const TaskModal = ({ isOpen, onClose, onSuccess, projectId, taskToEdit }) => {
     e.preventDefault();
     setError('');
     
-    // Prepare task data object with form values
-    const taskData = { title, description, priority, projectId };
+    // Prepare task data object for details update (no projectId needed for updates)
+    const taskData = { title, description, priority };
 
     try {
       if (isEditMode) {
-        // Update existing task
-        await updateTask(taskToEdit.id, taskData);
+        // Use the passed-in update API function for editing task details
+        await updateTaskApi(taskToEdit.id, taskData);
       } else {
-        // Create new task
-        await createTask(taskData);
+        // Create new task (still needs projectId)
+        await createTask({ ...taskData, projectId });
       }
       onSuccess(); // Refresh parent component data
       onClose();   // Close the modal
